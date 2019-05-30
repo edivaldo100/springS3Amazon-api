@@ -71,6 +71,9 @@ public class S3ServicesImpl implements S3Services {
 	@Override
 	public void uploadFile(String keyName, MultipartFile file) {
 		try {
+			System.out.println("bucketName: "+bucketName);
+			System.out.println("keyName: "+keyName);
+
 			ObjectMetadata metadata = new ObjectMetadata();
 			metadata.setContentLength(file.getSize());
 			s3client.putObject(bucketName, keyName, file.getInputStream(), metadata);
@@ -92,7 +95,7 @@ public class S3ServicesImpl implements S3Services {
 	}
 	
 	public List<String> listFiles() {
-		
+		logger.info("Bucket Name:       " + bucketName);
 	  ListObjectsRequest listObjectsRequest = 
               new ListObjectsRequest()
                     .withBucketName(bucketName);
