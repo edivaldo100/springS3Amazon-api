@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+	<!-- File Appender -->
+    <property name="LOG_FILE" value="apringS3AmaLogs.log"/>
+    <include resource="org/springframework/boot/logging/logback/file-appender.xml" />
+    
+    <logger name="com.edivaldo.s3" level="INFO" />
+    <logger name="ch.qos.logback" level="WARN"/>
+    <logger name="org.apache" level="INFO"/>
+    <logger name="org.hibernate.validator" level="WARN"/>
+    <logger name="org.hibernate" level="WARN"/>
+    <logger name="org.hibernate.ejb.HibernatePersistence" level="OFF"/>
+    <logger name="org.springframework" level="WARN"/>
+    <logger name="org.springframework.web" level="WARN"/>
+    <logger name="org.springframework.security" level="WARN"/>
+    <logger name="org.springframework.cache" level="WARN"/>
+    <logger name="javax.activation" level="WARN"/>
+    <logger name="sun.rmi" level="WARN"/>
+    <logger name="org.springframework.ws" level="TRACE"/>
+    <logger name="sun.net.www" level="TRACE"/>
+    
+    <root level="DEBUG">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE" />
+    </root>
+    <root level="INFO">
+        <appender-ref ref="FILE" />
+    </root>
+</configuration>
